@@ -6,20 +6,22 @@ import '@vime/core/themes/default.css'
 
 
 const GET_LESSON_BY_SLUG_QUERY = gql`
-        query GetLessonBySlug($slug: string){
-            lesson(where: {slug: $slug}) {
-                title
-                videoId
-                description
-                teacher{
-                    bio
-                    avatarUrl
-                    name
-                }
-            }
-        }
-
+query GetLessonBySlug($slug: String) {
+    lesson(where: {slug: $slug}) {
+     title
+      videoId
+      description
+      teacher{
+        bio
+        avatarURL
+        name
+      }
+    }
+  }
+  
 `
+
+
 
 
 
@@ -30,7 +32,7 @@ interface GetLessonBySlugResponse{
         description: string;
         teacher:{
             bio: string;
-            avatarUrl: string;
+            avatarURL: string;
             name: string;
         }
     }
@@ -52,6 +54,7 @@ export function Video(props: VideoProps){
             <p className="flex-1">Carregando...</p>
         )
     }
+  
     return(
        <div className="flex-1">
            <div className="bg-black flex justify-center">
@@ -76,7 +79,7 @@ export function Video(props: VideoProps){
                         <div className="flex items-center gap-4 mt-6">
                             <img 
                                 className="h-16 rounded-full border-2 border-blue-500"
-                                src={data.lesson.teacher.avatarUrl}
+                                src={data.lesson.teacher.avatarURL}
                                 alt="Carlos Pio"
                              />
 
