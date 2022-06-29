@@ -16,12 +16,7 @@ export function Lesson(props: LessonProps){
 
     const isLessonAvailable = isPast(props.availableAt)
 
-    const availableDateFormatted = format(props.availableAt, "EEEE' - 'd' de 'MMMMM' - 'k'h'mm",{
-        locale: ptBR,
-    } )
 
-
-    const isActiveLesson = slug === props.slug;
 
     return(
        <Link to={`/event/lesson/${props.slug}`} className="group">
